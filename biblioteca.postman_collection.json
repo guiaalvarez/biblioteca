@@ -1,0 +1,766 @@
+{
+	"info": {
+		"_postman_id": "b1ba08c7-2b8b-4038-9abc-113e53215c16",
+		"name": "biblioteca",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34688783"
+	},
+	"item": [
+		{
+			"name": "user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"guilherme_admin\",\r\n    \"password\": \"senha\",\r\n    \"role\": \"ROLE_ADMIN\",\r\n    \"enabled\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userLogin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"guilherme_admin\",\r\n    \"password\": \"senha\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb20ucHVjcHIuZXhlcmNpY2lvIiwiaWF0IjoxNzE2ODEzNzA3LCJleHAiOjE3MTY4MjgxMDcsInN1YiI6Imd1aWxoZXJtZV91c2VyIn0.-UwgUQV4aYS8-12uK1PUs4Wcae_BLg60eku_EdSmFX4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrowByBookId",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "guilherme",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "senha",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/borrow/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"borrow",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrowByBookTitle",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb20ucHVjcHIuZXhlcmNpY2lvIiwiaWF0IjoxNzE2ODE0NTA2LCJleHAiOjE3MTY4Mjg5MDYsInN1YiI6Imd1aWxoZXJtZV91c2VyIn0.iDMQQIYb_m9nPpzthE85GekPRj91yUXAyHuuTP1AURM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Atomic habits",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/borrow/byTitle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"borrow",
+						"byTitle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "returnBookByBorrowId",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\"2026-09-13\"",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/borrow/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"borrow",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "returnBookByTitle",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb20ucHVjcHIuZXhlcmNpY2lvIiwiaWF0IjoxNzE2ODEzNzA3LCJleHAiOjE3MTY4MjgxMDcsInN1YiI6Imd1aWxoZXJtZV91c2VyIn0.-UwgUQV4aYS8-12uK1PUs4Wcae_BLg60eku_EdSmFX4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Atomic habits\",\r\n    \"returnDate\": \"2024-09-25a\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/borrow/return/byTitle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"borrow",
+						"return",
+						"byTitle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBorrows",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb20ucHVjcHIuZXhlcmNpY2lvIiwiaWF0IjoxNzE2ODE0NTA2LCJleHAiOjE3MTY4Mjg5MDYsInN1YiI6Imd1aWxoZXJtZV91c2VyIn0.iDMQQIYb_m9nPpzthE85GekPRj91yUXAyHuuTP1AURM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/borrow",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"borrow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBorrowsFromUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb20ucHVjcHIuZXhlcmNpY2lvIiwiaWF0IjoxNzE2ODE0NTA2LCJleHAiOjE3MTY4Mjg5MDYsInN1YiI6Imd1aWxoZXJtZV91c2VyIn0.iDMQQIYb_m9nPpzthE85GekPRj91yUXAyHuuTP1AURM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/borrow/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"borrow",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllActiveBorrowsFromUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb20ucHVjcHIuZXhlcmNpY2lvIiwiaWF0IjoxNzE2ODEzNzA3LCJleHAiOjE3MTY4MjgxMDcsInN1YiI6Imd1aWxoZXJtZV91c2VyIn0.-UwgUQV4aYS8-12uK1PUs4Wcae_BLg60eku_EdSmFX4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/borrow/active",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"borrow",
+						"active"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBorrowsBetweenDates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/borrow/initialDate/2024-01-01/endDate/2024-12-31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"borrow",
+						"initialDate",
+						"2024-01-01",
+						"endDate",
+						"2024-12-31"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteBorrowById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/borrow/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"borrow",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addBook",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb20ucHVjcHIuZXhlcmNpY2lvIiwiaWF0IjoxNzE2ODEyNDQ4LCJleHAiOjE3MTY4MjY4NDgsInN1YiI6Imd1aWxoZXJtZV9hZG1pbiJ9.m53G4DkwDbjSixRJoZLlnySOe6orCM9ZmhSU4ANTlyE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Harry Potter\",\r\n    \"author\": \"J.K. Rowling\",\r\n    \"category\": \"Fantasy\",\r\n    \"quantity\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateQuantity",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb20ucHVjcHIuZXhlcmNpY2lvIiwiaWF0IjoxNzE2ODE1Njg3LCJleHAiOjE3MTY4MzAwODcsInN1YiI6Imd1aWxoZXJtZV9hZG1pbiJ9.z1tXUehzsYMJhxNkt7KYynscvSyV_WJfUp3aaPNMIsE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/book/updateQuantity?title=Atomic%20Habits&quantity=20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"book",
+						"updateQuantity"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Atomic%20Habits"
+						},
+						{
+							"key": "quantity",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBooks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb20ucHVjcHIuZXhlcmNpY2lvIiwiaWF0IjoxNzE2ODE0NTA2LCJleHAiOjE3MTY4Mjg5MDYsInN1YiI6Imd1aWxoZXJtZV91c2VyIn0.iDMQQIYb_m9nPpzthE85GekPRj91yUXAyHuuTP1AURM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBookById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "guilherme",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "senha",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/book/findById/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"book",
+						"findById",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBookByTitle",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb20ucHVjcHIuZXhlcmNpY2lvIiwiaWF0IjoxNzE2ODEzNzA3LCJleHAiOjE3MTY4MjgxMDcsInN1YiI6Imd1aWxoZXJtZV91c2VyIn0.-UwgUQV4aYS8-12uK1PUs4Wcae_BLg60eku_EdSmFX4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/book/findByTitle?title=Atomic%20habits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"book",
+						"findByTitle"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Atomic%20habits"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBookByCategory",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb20ucHVjcHIuZXhlcmNpY2lvIiwiaWF0IjoxNzE2ODEzNzA3LCJleHAiOjE3MTY4MjgxMDcsInN1YiI6Imd1aWxoZXJtZV91c2VyIn0.-UwgUQV4aYS8-12uK1PUs4Wcae_BLg60eku_EdSmFX4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/book/findByCategory?category=Fantasy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"book",
+						"findByCategory"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "Fantasy"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBookByAuthor",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/book/findByAuthor?author=J.R.R.%20Tolkien",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"book",
+						"findByAuthor"
+					],
+					"query": [
+						{
+							"key": "author",
+							"value": "J.R.R.%20Tolkien"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteBookById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/book/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"book",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteBookByTitle",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb20ucHVjcHIuZXhlcmNpY2lvIiwiaWF0IjoxNzE2ODEyMjUwLCJleHAiOjE3MTY4MjY2NTAsInN1YiI6Imd1aWxoZXJtZV91c2VyIn0._TVdnIWGGijNUhKSFrThif3wtonqZ3bRDFIr6qyqxcg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/book/deleteTitle?title=Song%20of%20fire%20and%20ice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"book",
+						"deleteTitle"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Song%20of%20fire%20and%20ice"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
